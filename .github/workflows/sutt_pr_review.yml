@@ -81,7 +81,7 @@ jobs:
 
       - name: Run hello
         run: |
-          python scripts/hello.py
+          python hello.py
 
       # - name: Call OpenAI API
       #   id: openai_request
