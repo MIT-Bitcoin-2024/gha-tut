@@ -16,7 +16,7 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const message = "Hola mundo 2.1";
+            const message = "Jorge Enrique Gamboa Fuentes estuvo aqui";
             github.rest.issues.createComment({
               owner: "MIT-Bitcoin-2024",
               repo: "gha-tut",
