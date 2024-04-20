@@ -20,9 +20,9 @@ print(response)
 print(response.status_code)
 try: 
     print(response.json())
-    print(response.json()["choices"][0]["text"])
+    print(response.json()["choices"][0]["message"]["content"])
 except Exception as e: 
     print(e)
-    print(response.text)
+    # print(response.text)
 # completion = response.json()["choices"][0]["text"]
 # print("Completion:", completion)
