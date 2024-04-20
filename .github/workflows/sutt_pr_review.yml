@@ -79,27 +79,31 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests
 
-      - name: Call OpenAI API
-        id: openai_request
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      - name: Run hello
         run: |
-          import requests
-          import json
+          python scripts/hello.py
 
-          url = "https://api.openai.com/v1/engines/davinci-codex/completions"
-          headers = {
-            "Content-Type": "application/json",
-            "Authorization": f"Bearer {OPENAI_API_KEY}"
-          }
-          data = {
-            "prompt": "Translate the following English text to French: 'Hello, how are you?'",
-            "max_tokens": 60
-          }
+      # - name: Call OpenAI API
+      #   id: openai_request
+      #   env:
+      #     OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      #   run: |
+      #     import requests
+      #     import json
 
-          response = requests.post(url, json=data, headers=headers)
-          completion = response.json()["choices"][0]["text"]
-          print("Completion:", completion)
+      #     url = "https://api.openai.com/v1/engines/davinci-codex/completions"
+      #     headers = {
+      #       "Content-Type": "application/json",
+      #       "Authorization": f"Bearer {OPENAI_API_KEY}"
+      #     }
+      #     data = {
+      #       "prompt": "Translate the following English text to French: 'Hello, how are you?'",
+      #       "max_tokens": 60
+      #     }
+
+      #     response = requests.post(url, json=data, headers=headers)
+      #     completion = response.json()["choices"][0]["text"]
+      #     print("Completion:", completion)
 
       #     # Write to GITHUB_ENV
       #     with open(os.getenv('GITHUB_ENV'), 'a') as f:
