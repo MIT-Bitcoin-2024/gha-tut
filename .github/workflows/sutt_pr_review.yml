@@ -101,13 +101,13 @@ jobs:
           completion = response.json()["choices"][0]["text"]
           print("Completion:", completion)
 
-          # Write to GITHUB_ENV
-          with open(os.getenv('GITHUB_ENV'), 'a') as f:
-              f.write(f"COMPLETION={json.dumps(completion)}\n")
+      #     # Write to GITHUB_ENV
+      #     with open(os.getenv('GITHUB_ENV'), 'a') as f:
+      #         f.write(f"COMPLETION={json.dumps(completion)}\n")
 
-      - name: Use Completion Data
-        run: |
-          echo "The completion data is: $COMPLETION"
+      # - name: Use Completion Data
+      #   run: |
+      #     echo "The completion data is: $COMPLETION"
       
       # - name: If paid launch hit openai
       #   if: steps.check_payment.outputs.is_paid == 'true'
