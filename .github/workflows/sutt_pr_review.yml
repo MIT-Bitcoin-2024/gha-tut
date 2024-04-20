@@ -70,7 +70,7 @@ jobs:
 
       - name: Checkout code
         uses: actions/checkout@v2
-        
+
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
@@ -84,6 +84,13 @@ jobs:
       - name: Run hello
         run: |
           python hello.py
+
+      - name: Run get_completion.py
+        id: openai_request
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          python scripts/get_completion.py
 
       # - name: Call OpenAI API
       #   id: openai_request
