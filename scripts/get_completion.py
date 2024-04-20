@@ -15,5 +15,9 @@ data = {
 }
 
 response = requests.post(url, json=data, headers=headers)
-completion = response.json()["choices"][0]["text"]
-print("Completion:", completion)
+print(response)
+print(response.status_code)
+try: print(response.json())
+except: print(response.text)
+# completion = response.json()["choices"][0]["text"]
+# print("Completion:", completion)
